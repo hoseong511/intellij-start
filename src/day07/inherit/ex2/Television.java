@@ -1,7 +1,7 @@
-package day07.ex2;
+package day07.inherit.ex2;
 
 /**
- * packageName    : day07.ex2
+ * packageName    : day07.inherit.ex2
  * fileName       : Television
  * author         : hoho
  * date           : 4/17/24
