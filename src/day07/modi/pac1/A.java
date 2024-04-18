@@ -1,6 +1,6 @@
-package day07;
+package day07.modi.pac1;
 
-import day07.modi.pac1.B; /**
+/**
  * packageName    : day07
  * fileName       : A
  * author         : hoho
@@ -45,8 +45,8 @@ public class A {
         m2();
         m3();
 
-        new B.A(10); // public
-        new B.A(5.5); // default
-        new B.A(false); // private
+        new A(10); // public
+        new A(5.5); // default
+        new A(false); // private
     }
 }
