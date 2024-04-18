@@ -1,7 +1,7 @@
-package static_;
+package day08.static_;
 
 /**
- * packageName    : static_
+ * packageName    : day08.static_
  * fileName       : Count
  * author         : hoho
  * date           : 4/18/24
@@ -25,7 +25,7 @@ public class Count {
      */
     public static void m1() {
         System.out.println("called m1");
-        System.out.printf("x : %d, y : %d\n", x, y);
+//        System.out.printf("x : %d, y : %d\n", x, y);
     }
 
     public void m2() {
