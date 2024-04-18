@@ -1,12 +1,22 @@
-package day08.recursive;/**
- *packageName    : day08.recursive
- * fileName       : Recursive
- * author         : hoho
- * date           : 4/18/24
- * description    :
- * ===========================================================
- * DATE              AUTHOR             NOTE
- * -----------------------------------------------------------
- * 4/18/24        hoho       최초 생성
- */public class Recursive {
+package day08.recursive;
+
+class Parent1 {
+    int compute(int num) {
+        if (num <= 1) return num;
+        return compute(num - 1) + compute(num - 2);
+    }
+}
+
+class Child1 extends Parent1 {
+    int compute(int num) {
+        if (num <= 1) return num;
+        return compute(num - 1) + compute(num - 3);
+    }
+}
+
+public class Recursive {
+    public static void main(String[] args) {
+        Child1 cc = new Child1();
+        System.out.println(cc.compute(4));
+    }
 }
