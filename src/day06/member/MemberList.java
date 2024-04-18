@@ -16,7 +16,7 @@ import java.util.Arrays;
  * 4/16/24        hoho       최초 생성
  */
 public class MemberList {
-    Member[] mArr;
+    private Member[] mArr;
     MemberList() {
         this.mArr = new Member[0];
     }
@@ -38,19 +38,22 @@ public class MemberList {
         mArr = temp;
     }
 
-    // 인덱스 탐색 (indexOf)
-    public int indexOf(Member target) {
+    /**
+     *
+     * @method   indexOf //by email
+     * @param    email
+     * @return   int type
+     * @author   hoho
+     * @date     2024 04 17 09:51
+     *
+     */
+    public int indexOf(String email) {
         for (int i = 0; i < mArr.length; i++) {
-            if (target.getId() == mArr[i].getId()) {
+            if (mArr[i].getEmail().equals(email)) {
                 return i;
             }
         }
         return -1;
-    }
-
-    // 자료 유무 확인 (includes)
-    public boolean includes(Member target) {
-        return indexOf(target) != -1;
     }
 
     public void insert(int index, Member newData) {
@@ -72,21 +75,24 @@ public class MemberList {
         mArr = temp;
     }
 
-    public void remove(Member arg) {
-        int idx = indexOf(arg);
+    public Member remove(String email) {
+        int idx = indexOf(email);
+        Member target = null;
         if (idx == -1) {
             System.out.println("not found");
-            return ;
+            return target;
         }
         Member[] temp = new Member[size() - 1];
         for (int i = 0, j = 0; i < size(); i++) {
             if (idx == i) {
+                target = mArr[i];
                 continue;
             }
             temp[j] = mArr[i];
             j++;
         }
         mArr = temp;
+        return target;
     }
 
     public void set(int idx, Member arg) {
