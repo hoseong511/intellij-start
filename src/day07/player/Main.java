@@ -20,5 +20,14 @@ public class Main {
         w.showStatus();
         m.showStatus();
         h.showStatus();
+
+        System.out.println("=======================");
+
+        /**
+         * 썬더볼트 여러 대상 공격
+         * 1. 자신은 피해 x
+         * 2. 타겟 대상 10 ~ 15 랜덤 피해
+         */
+        m.thunderbolt(w, h, m, new Warrior("eagle"));
     }
 }

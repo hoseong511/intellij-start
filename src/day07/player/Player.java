@@ -30,4 +30,13 @@ public class Player extends Object{
         System.out.println("# hp: " + this.hp);
     }
 
+    public void damageHp(int damage) {
+        this.hp -= damage;
+    }
+
+    public void attack(Player target, int damage) {
+        target.damageHp(damage);
+        System.out.printf("%s님이 %d의 피해를 받았습니다. (남은 체력: %d)\n", target.nickname, damage, target.hp );
+    }
+
 }

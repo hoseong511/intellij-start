@@ -26,6 +26,7 @@ public class MethodQuiz {
             System.out.println("not found");
             return ;
         }
+
         String[] temp = new String[foods.length - 1];
         for (int i = 0, j = 0; i < foods.length; i++) {
             if (idx == i) {
@@ -50,6 +51,10 @@ public class MethodQuiz {
     }
 
     static void insert(int idx, String arg) {
+        if (idx < foods.length) {
+            System.out.println("check idx");
+            return ;
+        }
         String[] temp = new String[foods.length + 1];
 
         for (int i = 0, j = 0; i < temp.length; i++) {
@@ -64,6 +69,10 @@ public class MethodQuiz {
     }
 
     static void modify(int idx, String arg) {
+        if (idx < foods.length) {
+            System.out.println("check idx");
+            return ;
+        }
         for (int i = 0; i < foods.length; i++) {
             if (i == idx) {
                 foods[i] = arg;

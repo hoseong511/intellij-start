@@ -19,7 +19,13 @@ public class Mage extends Player {
         this.nickname = nickname;
     }
 
-    public void thunderbolt(Mage... targets) {
 
+    public void thunderbolt(Player... targets) {
+        for (Player target : targets) {
+            if (target == this) continue;
+            int damage = (int)((Math.random() * 5) + 11);
+            System.out.println("target " + target.nickname + "을 공격");
+            this.attack(target, damage);
+        }
     }
 }

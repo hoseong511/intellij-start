@@ -9,5 +9,6 @@ public class Main {
         System.out.println("hoho = " + hoho);
         hoho.attack(hoho2);
         System.out.println(hoho2.getHp());
+        new Player();
     }
 }

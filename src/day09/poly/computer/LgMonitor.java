@@ -11,7 +11,7 @@ package day09.poly.computer;
  * -----------------------------------------------------------
  * 4/19/24        hoho       최초 생성
  */
-public class LgMonitor extends Monitor{
+public class LgMonitor extends Monitor {
 	LgMonitor() {
 		System.out.println("LgMonitor");
 	}

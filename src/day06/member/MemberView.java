@@ -1,8 +1,6 @@
 package day06.member;
 
-import day06.util.SimpleInput;
-
-import java.util.Scanner;
+import util.SimpleInput;
 
 import static java.lang.Integer.parseInt;
 
@@ -112,6 +110,7 @@ public class MemberView {
             String isCheck = si.input("비밀번호를 입력해주세요: ");
             if (isCheck.equals(find.password)) {
                 mr.deleteMember(find.email);
+                mr.addRestoreMember(find);
                 System.out.println("회원이 삭제되었습니다.!");
             } else {
                 System.out.println("취소하셨습니다.");
@@ -146,6 +145,7 @@ public class MemberView {
             String password = si.input("비밀번호를 입력하세요. \n비밀번호: ");
             if (found.password.equals(password)) {
                 mr.deleteRestoreMember(found);
+                mr.addNewMember(found);
                 System.out.println("복구되었습니다.");
             } else {
                 System.out.println("비밀번호를 확인해주세요.");

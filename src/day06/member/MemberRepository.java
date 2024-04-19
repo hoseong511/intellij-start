@@ -65,17 +65,19 @@ public class MemberRepository {
      * @date     2024 04 16 14:26
      *
      */
-    public void deleteMember(String targetEmail) {
+    public Member deleteMember(String targetEmail) {
+        Member target = null;
         Member[] tmp = new Member[members.length - 1];
         for (int i = 0, j = 0; i < members.length; i++) {
             if (members[i].email.equals(targetEmail)) {
-                addRestoreMember(members[i]);
+                target = members[i];
                 continue;
             }
             tmp[j] = members[i];
             j++;
         }
         members = tmp;
+        return target;
     }
 
     public void addRestoreMember(Member target) {
@@ -96,16 +98,18 @@ public class MemberRepository {
         }
         return null;
     }
-    public void deleteRestoreMember(Member member) {
+    public Member deleteRestoreMember(Member member) {
+        Member target = null;
         Member[] tmp = new Member[restoreList.length - 1];
         for (int i = 0, j = 0; i < restoreList.length; i++) {
             if (restoreList[i].id == member.id) {
-                addNewMember(restoreList[i]);
+                target = restoreList[i];
                 continue ;
             }
             tmp[j] = restoreList[i];
             j++;
         }
         restoreList = tmp;
+        return target;
     }
 }
