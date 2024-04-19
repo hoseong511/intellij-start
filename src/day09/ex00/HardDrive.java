@@ -2,18 +2,18 @@ package day09.ex00;
 
 /**
  * packageName    : day09.ex00
- * fileName       : Processor
+ * fileName       : HardDrive
  * author         : hoho
  * date           : 4/19/24
  * description    :
  */
-public class Processor extends ComputerPart {
-	public Processor(String partName, double partPrice) {
+class HardDrive extends ComputerPart {
+	public HardDrive(String partName, double partPrice) {
 		super(partName, partPrice);
 	}
 
 	@Override
 	public void describePart() {
-		System.out.println("Processor: " + partName + ", Price: " + partPrice);
+		System.out.println("Hard Drive: " + partName + ", Price: " + partPrice);
 	}
 }
