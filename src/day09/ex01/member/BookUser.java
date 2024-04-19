@@ -1,4 +1,4 @@
-package day09.ex01;
+package day09.ex01.member;
 
 import day09.ex01.Gender;
 import day09.ex01.library.Book;
@@ -18,6 +18,7 @@ public class BookUser {
 	private Gender gender; // 성별
 	private int couponCount; // 쿠폰 갯수
 	private BookList rentBookList; // 빌린 책 정보들
+	private BookList historyList; // 빌린 책 정보들
 
 	public BookUser() {
 

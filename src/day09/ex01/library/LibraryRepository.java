@@ -1,4 +1,6 @@
-package day09.ex01;
+package day09.ex01.library;
+
+import day09.ex01.member.BookUser;
 
 /**
  * packageName    : day09.ex01

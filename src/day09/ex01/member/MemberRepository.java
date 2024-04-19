@@ -1,115 +1,118 @@
-package day06.member;
+package day09.ex01.member;
+
+import day09.ex01.Gender;
+
 /*
-* 역할 : 회원 멤버를 관리하는 역할
-* */
+ * 역할 : 회원 멤버를 관리하는 역할
+ * */
 public class MemberRepository {
-    static Member[] members;
-    static Member[] restoreList;
-    MemberRepository() {
-        this.members = new Member[3];
-        this.restoreList = new Member[0];
-        members[0] = new Member("abc@def.com", "1234", "콩순이", "여성", 50);
-        members[1] = new Member("ghi@def.com", "5432", "팥돌이", "남성", 40);
-        members[2] = new Member("xyz@def.com", "7890", "팥죽이", "여성", 30);
-    }
+	static BookUser[] members;
+	static BookUser[] restoreList;
 
-    /**
-     *
-     * @param member - 사용자 입력으로 전달된 회원 정보 객체
-     * @since
-     */
-    public void addNewMember(Member member) {
-        Member[] tmp = new Member[members.length + 1];
-        for (int i = 0; i < members.length; i++) {
-            tmp[i] = members[i];
-        }
-        tmp[tmp.length - 1] = member;
-        members = tmp;
-    }
+	MemberRepository() {
+		this.members = new BookUser[3];
+		this.restoreList = new BookUser[0];
+		members[0] = new BookUser("hoho", "1234", 12, Gender.MALE, 0);
+		members[1] = new BookUser("hoho2", "5432", 18, Gender.FEMALE, 0);
+		members[2] = new BookUser("hoho3", "7890", 15, Gender.MALE, 0);
+	}
+
+	/**
+	 * @param member - 사용자 입력으로 전달된 회원 정보 객체
+	 * @since
+	 */
+	public static void addNewMember(BookUser member) {
+		BookUser[] tmp = new BookUser[members.length + 1];
+		for (int i = 0; i < members.length; i++) {
+			tmp[i] = members[i];
+		}
+		tmp[tmp.length - 1] = member;
+		members = tmp;
+	}
 
 
-    /**
-     * 회원정보 중 이메일 중복 확인 기능
-     * @param email
-     * @return boolean
-     */
-    public boolean isDuplicateEmail(String email) {
-        for (Member member : members) {
-            if (email.equals(member.email)) return true;
-        }
-        return false;
-    }
+	/**
+	 * 회원정보 중 이메일 중복 확인 기능
+	 *
+	 * @param name
+	 * @return boolean
+	 */
+	public boolean isDuplicateEmail(String name) {
+		for (BookUser member : members) {
+			if (name.equals(member.getName())) return true;
+		}
+		return false;
+	}
 
-    /**
-     *
-     * @method   findMember
-     * @param    targetEmail
-     * @return   Member type
-     * @author   hoho
-     * @date     2024 04 16 12:39
-     *
-     */
-    public Member selectMember(String targetEmail) {
-        Member find = null;
-        for (Member member : members) {
-            if (targetEmail.equals(member.email)) find = member;
-        }
-        return find;
-    }
+	/**
+	 * @param target
+	 * @return BookUser type
+	 * @method findMember
+	 * @author hoho
+	 * @date 2024 04 16 12:39
+	 */
+	public static BookUser selectMember(String target) {
+		for (BookUser member : members) {
+			if (target.equals(member.getName()))
+				return member;
+		}
+		return null;
+	}
 
-    /**
-     * member 삭제
-     * @method   deleteMember
-     * @param    targetEmail
-     * @author   hoho
-     * @date     2024 04 16 14:26
-     *
-     */
-    public Member deleteMember(String targetEmail) {
-        Member target = null;
-        Member[] tmp = new Member[members.length - 1];
-        for (int i = 0, j = 0; i < members.length; i++) {
-            if (members[i].email.equals(targetEmail)) {
-                target = members[i];
-                continue;
-            }
-            tmp[j] = members[i];
-            j++;
-        }
-        members = tmp;
-        return target;
-    }
+	/**
+	 * member 삭제
+	 *
+	 * @param targetEmail
+	 * @method deleteMember
+	 * @author hoho
+	 * @date 2024 04 16 14:26
+	 */
+	public BookUser deleteMember(String targetEmail) {
+		BookUser target = null;
+		BookUser[] tmp = new BookUser[members.length - 1];
+		for (int i = 0, j = 0; i < members.length; i++) {
+			if (members[i].getName().equals(targetEmail)) {
+				target = members[i];
+				continue;
+			}
+			tmp[j] = members[i];
+			j++;
+		}
+		members = tmp;
+		return target;
+	}
 
-    public void addRestoreMember(Member target) {
-        Member[] tmp = new Member[restoreList.length + 1];
-        for (int i = 0; i < restoreList.length; i++) {
-            tmp[i] = restoreList[i];
-        }
-        tmp[tmp.length - 1] = target;
-        restoreList = tmp;
-    }
+	public void addRestoreMember(BookUser target) {
+		BookUser[] tmp = new BookUser[restoreList.length + 1];
+		for (int i = 0; i < restoreList.length; i++) {
+			tmp[i] = restoreList[i];
+		}
+		tmp[tmp.length - 1] = target;
+		restoreList = tmp;
+	}
 
-    public Member findRestoreMemberByEmail(String email) {
-        for (int i = 0; i < restoreList.length; i++) {
-            Member member = restoreList[i];
-            if (member.email.equals(email)) {
-                return member;
-            }
-        }
-        return null;
-    }
-    public Member deleteRestoreMember(Member member) {
-        Member target = null;
-        Member[] tmp = new Member[restoreList.length - 1];
-        for (int i = 0, j = 0; i < restoreList.length; i++) {
-            if (restoreList[i].id == member.id) {
-                target = restoreList[i];
-                continue ;
-            }
-            tmp[j] = restoreList[i];
-            j++;
-        }
-        restoreList = tmp;
-        return target;
-    }
+	public BookUser findRestoreMemberByEmail(String name) {
+		for (int i = 0; i < restoreList.length; i++) {
+			BookUser member = restoreList[i];
+			if (member.getName().equals(name)) {
+				return member;
+			}
+		}
+		return null;
+	}
+
+	public BookUser deleteRestoreMember(BookUser member) {
+		BookUser target = null;
+		BookUser[] tmp = new BookUser[restoreList.length - 1];
+//        for (int i = 0, j = 0; i < restoreList.length; i++) {
+//            if (restoreList[i].id == member.id) {
+//                target = restoreList[i];
+//                continue ;
+//            }
+//            tmp[j] = restoreList[i];
+//            j++;
+//        }
+		restoreList = tmp;
+		return target;
+	}
 }

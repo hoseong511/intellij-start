@@ -1,4 +1,4 @@
-package day06.member;
+package day09.ex01.member;
 
 import java.time.LocalDate;
 

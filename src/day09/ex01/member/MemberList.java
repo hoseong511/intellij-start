@@ -1,6 +1,4 @@
-package day06.member;
-
-import day06.member.Member;
+package day09.ex01.member;
 
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-package day09.ex01;
+package day09.ex01.library;
 
 /**
  * packageName    : day09.ex01
