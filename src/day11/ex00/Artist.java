@@ -1,5 +1,6 @@
 package day11.ex00;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -10,7 +11,7 @@ import java.util.Set;
  * date           : 4/23/24
  * description    :
  */
-public class Artist {
+public class Artist implements Serializable {
 	private String name;
 	private Set<String> playList ;
 
@@ -30,6 +31,10 @@ public class Artist {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public Set<String> getPlayList() {
+		return playList;
 	}
 
 	public void showPlayList() {

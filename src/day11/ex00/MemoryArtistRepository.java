@@ -17,10 +17,14 @@ public class MemoryArtistRepository implements ArtistRepository {
 	public Artist searchByName(String artistName) {
 		return repo.get(artistName);
 	}
-
 	@Override
 	public void addArtist(Artist artist) {
 		repo.put(artist.getName(), artist);
+	}
+
+	@Override
+	public boolean addPlayList(Artist found, String title) {
+		return found.addPlayList(title);
 	}
 
 	@Override

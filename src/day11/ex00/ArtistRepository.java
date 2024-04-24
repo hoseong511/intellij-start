@@ -10,5 +10,7 @@ package day11.ex00;
 public interface ArtistRepository {
 	Artist searchByName(String artistName);
 	void addArtist(Artist artist);
+
+	boolean addPlayList(Artist found, String title);
 	int size();
 }

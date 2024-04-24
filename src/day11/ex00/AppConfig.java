@@ -11,8 +11,7 @@ public class AppConfig {
 	public ArtistView artistView() {
 		return new ArtistViewImpl(artistRepository());
 	}
-
 	private static ArtistRepository artistRepository() {
-		return new MemoryArtistRepository();
+		return new FileArtistRepository();
 	}
 }

@@ -28,7 +28,7 @@ public class ArtistViewImpl implements ArtistView {
 	private int selectMenu() {
 		switch (mainMenu()) {
 			case "1":
-				registerMenu();
+				register();
 				break;
 			case "2":
 				search();
@@ -52,12 +52,16 @@ public class ArtistViewImpl implements ArtistView {
 		} else {
 			System.out.println("# " + name + "님의 노래목록");
 			System.out.println("========================");
-			found.showPlayList();
+			int idx = 1;
+			for (String s : found.getPlayList()) {
+				System.out.println("* " + (idx++) + ". " + s);
+			}
+
 		}
 		System.out.println();
 	}
 
-	private void registerMenu() {
+	private void register() {
 		System.out.println("# 노래 등록을 시작합니다.");
 		String artistName = SimpleInput.input("- 가수명: ");
 		String songTitle = SimpleInput.input("- 노래명: ");
@@ -66,7 +70,7 @@ public class ArtistViewImpl implements ArtistView {
 			repository.addArtist(new Artist(artistName, songTitle));
 			System.out.println("# " + artistName + "님이 신규 등록되었습니다.");
 		} else {
-			if (found.addPlayList(songTitle))
+			if (repository.addPlayList(found, songTitle))
 				System.out.println("# " + artistName + "님의 노래목록에 " + songTitle + "곡이 추가되었습니다.");
 			else
 				System.out.println("# [" + songTitle + "]곡은 이미 등록된 노래입니다.");
