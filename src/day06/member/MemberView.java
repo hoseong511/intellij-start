@@ -13,6 +13,7 @@ public class MemberView {
 
     MemberView() {
         this.mr = new MemberRepository();
+        this.mr.loadFile();
     }
 
     public void showMembers() {
