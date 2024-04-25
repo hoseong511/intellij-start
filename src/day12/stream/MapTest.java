@@ -33,7 +33,9 @@ public class MapTest {
 	@Test
 	void 맵() {
 		List<String> strList = List.of("hoho", "ho", "string", "char", "integer");
-		List<Integer> collect = strList.stream().map((w) -> w.length()).collect(Collectors.toList());
+		List<String> collect = strList.stream()
+				.map((w) -> w + "hi")
+				.collect(Collectors.toList());
 		collect.forEach(len -> System.out.println(len));
 	}
 
@@ -57,5 +59,32 @@ public class MapTest {
 				.map(SimpleDish::new)
 				.collect(Collectors.toList());
 		collect.forEach(simpleDish -> System.out.println(simpleDish));
+	}
+	@Test
+	void 맵이랑필터같이써보기() {
+		List<DishDetail> collect = menuList.stream()
+				.filter(d -> d.getCalories() >= 500)
+				.map(DishDetail::new)
+				.collect(Collectors.toList());
+
+		System.out.println("collect = " + collect);
+	}
+
+	@Test
+	void mapToInt사용() {
+		int sum = menuList.stream()
+				.mapToInt(Dish::getCalories)
+				.sum();
+		System.out.println("sum = " + sum);
+	}
+
+	@Test
+	void 육류_메뉴의_평균_칼로리() {
+		double asDouble = menuList.stream()
+				.filter(d -> d.getType() == Dish.Type.MEAT)
+				.mapToInt(d -> d.getCalories())
+				.average()
+				.getAsDouble();
+		System.out.println("asDouble = " + asDouble);
 	}
 }
