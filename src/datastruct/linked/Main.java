@@ -9,7 +9,7 @@ package datastruct.linked;
  */
 public class Main {
 	public static void main(String[] args) {
-		NodeList lst = new NodeList(new Node(new A(1)));
+		NodeList lst = new NodeList();
 		lst.add(new Node(new A(2)));
 		lst.add(new Node(new A(3)));
 		lst.add(new Node(new A(4)));

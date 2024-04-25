@@ -9,11 +9,15 @@ package datastruct.linked;
  */
 public class NodeList {
 	Node head;
-	NodeList(Node node) {
-		this.head = node;
+	public NodeList() {
+		this.head = new Node(null);
 	}
 
 	public void add(Node node) {
+		if (head.getObj() == null) {
+			this.head = node;
+			return ;
+		}
 		Node curr = head;
 		while (curr.next != null) {
 			curr = curr.next;
@@ -30,4 +34,7 @@ public class NodeList {
 		System.out.println();
 	}
 
+	public Node getHead() {
+		return head;
+	}
 }

@@ -10,8 +10,16 @@ package datastruct.linked;
 public class Node {
 	Object obj;
 	Node next;
-	Node(Object obj) {
+	public Node(Object obj) {
 		this.obj = obj;
 		this.next = null;
+	}
+
+	public Node getNext() {
+		return next;
+	}
+
+	public Object getObj() {
+		return obj;
 	}
 }
